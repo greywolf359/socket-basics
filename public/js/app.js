@@ -5,17 +5,19 @@ socket.on('connect', ()=>{
 });
 
 socket.on("message",function(message){
-	console.log('new message:');
-	console.log(message);
+	console.log('message ', message.text)
+	
+	$('.messages').append(`<p>${message.text}</p>`)
 })
 
 //handles submitting of new message
 
 var $form = $('#message-form');
+var $message = $form.find('input[name=message]');
 $form.on('submit', (event)=>{
 	event.preventDefault();
 	socket.emit('message', {
-		text: $form.find('input[name=message]').val()
+		text: $message.val()
 	})
-	$form.find('input[name=message]').val('');
+	$message.val('');
 });
