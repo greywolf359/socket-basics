@@ -5,8 +5,16 @@ console.log(name + " wants to join " + room);
 
 var socket = io();
 
+$('h1[class=room-title]').text(room);
+$('h3[class=user-name]').text(`You are signed in as ${name}`);
+
+//fires when client successfully connects
 socket.on('connect', ()=>{
 	console.log("connected to socket.io server");
+	socket.emit('joinRoom', {
+		name: name,
+		room: room
+	})
 });
 
 socket.on("message",function(message){
