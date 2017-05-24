@@ -23,9 +23,11 @@ socket.on('connect', ()=>{
 //listens for the message event that server.js emits and displays it to the user
 socket.on("message",function(message){
 	var timeStamp = moment.utc(message.time);
-	var $message = $('.messages');
+	var $messages = $('.messages');
+	var $message = $('<li class = "list-group-item"></li>');
 	$message.append(`<p><strong> ${message.name} ${timeStamp.local().format('hh:mm a')}</strong></p>`)
-	$message.append(`<p>${message.text}</p>`)
+	$message.append(`<p>${message.text}</p>`);
+	$messages.append($message);
 	
 })
 

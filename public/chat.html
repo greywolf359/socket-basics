@@ -4,19 +4,38 @@
 	<title></title>
 	<meta charset="utf-8"/>
 	<title>Socket Basic App</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/styles.css"/>
 </head>
 <body>
-	<a href = "index.html">Back to Index</a>
-	<h1 class = "room-title"></h1>
-	<h3 class = "user-name"></h3>
-	<div class = "messages">
-		
-	</div>
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-md-4 col-md-offset-4 well">
+				<a href = "index.html">Back to Index</a>
+				<h1 class = "room-title"></h1>
+				<h3 class = "user-name"></h3>
 
-	<form id = "message-form">
-		<input type = "text" name = "message"/>
-		<input type = "submit"/>
-	</form>
+				<ul class = "messages list-group"></ul>
+				<form id = "message-form">
+					<div class = "form-group">
+						<div class = "input-group">
+							<span class = "input-group-addon">
+								<i class = "glyphicon glyphicon-comment"></i>
+							</span>
+							<input type = "text" name = "message" class = "form-control"/>
+						</div>
+					</div>
+					<div class = "form-group">
+						<input type = "submit" class = "btn btn-default btn-block"/>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	
 	<script type="text/javascript" src="/js/jquery-3.2.1.slim.min.js"></script>
 	<script type="text/javascript" src="/js/socket.io-1.3.7.js"></script>
 	<script type="text/javascript" src = "/js/moment.js"></script>
